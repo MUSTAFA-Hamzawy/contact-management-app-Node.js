@@ -1,12 +1,16 @@
-const {router, path} = require('../config/app');
-const ContactController = require('../controllers/ContactController');
+const { router } = require("../config/app");
+const {
+  getContacts,
+  getContact,
+  createContact,
+  updateContact,
+  deleteContact,
+} = require("../controllers/ContactController");
 
-
-router.get('/all', ContactController.getContacts);
-router.get('/:id', ContactController.getContact);
-router.post('/add', ContactController.createContact)
-router.put('/update/:id', ContactController.updateContact)
-router.delete('/delete/:id', ContactController.delteContact)
-
+router.get("/all", getContacts);
+router.get("/:id", getContact);
+router.post("/add", createContact);
+router.put("/update/:id", updateContact);
+router.delete("/delete/:id", deleteContact);
 
 module.exports = router;
