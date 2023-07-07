@@ -1,7 +1,6 @@
-const status = require("../config/status_codes");
+const status = require("../config/statusCodes");
 
 const ErrorHandlerMiddleware = (err, req, res, next) => {
-    console.log('Error handlerrrrrrrrrrrrrrr.\n');
     const statusCode = res.statusCode || status.SERVER_ERROR;
     let error = "Server Error";
 
