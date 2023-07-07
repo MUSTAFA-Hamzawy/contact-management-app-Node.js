@@ -1,36 +1,40 @@
-const status = require('../config/status_codes');
+const status = require('../config/statusCodes');
+const asyncHandler = require('express-async-handler');
 
-class ContactController{
 
-    static getContacts(req, res){
-         res.status(status.DEFAULT).json(["any data"])
+const getContacts = asyncHandler( async (req, res) => {
+        res.status(status.DEFAULT).json(["any data"])
+})
+
+const getContact = asyncHandler( async (req, res) =>  {
+        res.status(status.DEFAULT).json([req.params.id])
+})
+
+const createContact = asyncHandler( async (req, res) =>  {
+    const {name, age} = req.body;
+    
+    // Handling Errors
+    if(!name || !age){
+        res.status(status.VALIDATION_ERROR)
+        throw Error("All fields are required.");
     }
 
-    static getContact(req, res) {
-         res.status(status.DEFAULT).json([req.params.id])
-    }
+    // Logic
+})
 
-    static createContact(req, res) {
-        const {name, age} = req.body;
-        
-        // Handling Errors
-        if(!name || !age){
-            res.status(status.VALIDATION_ERROR)
-            throw Error("All fields are required.");
-        }
-
-        // Logic
-   }
-
-    static updateContact(req, res) {
-         res.status(status.UPDATED).json(["any data"])
-    }
-
-    static delteContact(req, res) {
-         res.status(status.DEFAULT).json(["any data"])
-    }
-
-}
+const updateContact = asyncHandler( async (req, res) =>  {
+        res.status(status.UPDATED).json(["any data"])
+})
+const deleteContact = asyncHandler( async (req, res) =>{ 
+        res.status(status.DEFAULT).json(["any data"])
+})
 
 
-module.exports = ContactController;
+
+module.exports = {
+    getContacts,
+    getContact,
+    createContact,
+    updateContact,
+    deleteContact
+};
