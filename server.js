@@ -11,17 +11,17 @@ const userRoutes = require('./routes/user');
 
 
 // db connection
-// connectDB();
+connectDB();
 
-// mongoose.connection.once('open', ()=>{
-//     console.log('connected to db.');
+mongoose.connection.once('open', ()=>{
+    console.log('connected to db.');
 
     // Listening for any request, if connected to db successfully
     app.listen(PORT, ()=>{
         console.log(`Server is running on port : ${PORT}`);
     })
 
-// })
+})
 
 
 app.use(express.json()); // Built-in Middleware To parse any request body
