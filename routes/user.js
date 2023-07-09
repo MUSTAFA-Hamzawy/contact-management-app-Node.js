@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const UserController = require('../controllers/UserController');
+const ValidateTokenMiddleware = require('../middlewares/ValidateTokenMiddleware');
 
 module.exports = {
     getProfile,
@@ -12,10 +13,10 @@ module.exports = {
 
 
 
-router.get('/profile', getProfile);
+router.get('/profile', ValidateTokenMiddleware, getProfile);
 router.post('/login', login);
 router.post('/register', register);
-router.post('/logout', logout);
+router.post('/logout', ValidateTokenMiddleware, logout);
 
 
 module.exports = router;
