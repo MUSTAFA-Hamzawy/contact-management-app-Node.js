@@ -47,7 +47,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```sh
-    git clone https://github.com/MUSTAFA-Hamzawy/contact-management-app-expressjs.git
+    git clone https://github.com/MUSTAFA-Hamzawy/contact-management-app-Node.js.git
 ```
 
 2. Make your own copy of the .env file
@@ -71,4 +71,4 @@ To get a local copy up and running follow these simple steps.
 
 
 ## License
-See [LICENSE](https://github.com/MUSTAFA-Hamzawy/contact-management-app-expressjs/blob/main/LICENSE) for more information.
+See [LICENSE](https://github.com/MUSTAFA-Hamzawy/contact-management-app-Node.js/blob/main/LICENSE) for more information.
