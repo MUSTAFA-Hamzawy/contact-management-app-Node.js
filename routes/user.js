@@ -3,6 +3,7 @@ const router = express.Router();
 
 const UserController = require('../controllers/UserController');
 const ValidateTokenMiddleware = require('../middlewares/ValidateTokenMiddleware');
+const status = require('../config/statusCodes');
 
 module.exports = {
     getProfile,

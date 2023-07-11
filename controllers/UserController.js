@@ -9,7 +9,7 @@ const getProfile = asyncHandler( async (req, res) => {
     res.json(req.user);     // this data coming from the ValidateTokenMiddleware
 })
 
-
+// To validate the data used for login
 const checkLoginData = async (data)=>{
     const {emailOrUsername, password} = data;
    
@@ -19,6 +19,7 @@ const checkLoginData = async (data)=>{
 
     return true;
 }
+
 const login = asyncHandler( async (req, res)=>{
     const {emailOrUsername, password} = req.body;
     const error = await checkLoginData({emailOrUsername, password});

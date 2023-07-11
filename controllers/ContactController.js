@@ -7,11 +7,13 @@ const getContacts = asyncHandler( async (req, res) => {
         res.status(status.DEFAULT).json(data);
 })
 
+// To fetch a certain contact 
 const getContact = asyncHandler( async (req, res) =>  {
         const id = req.params.id;
         const currentUserId = req.user.id;
         const data = await ContactModel.findOne({id}) || {};
 
+        // Checking that the current user is authorized to fetch this contact
         if(data.user_id.toString() != currentUserId){
                 res.status(status.UNAUTHORIZED);
                 throw new Error("User is not authorized to fetch this contact.")
@@ -43,6 +45,7 @@ const updateContact = asyncHandler( async (req, res) =>  {
                 throw new Error("Not found contact.")
         }
         
+        // Checking that the current user is authorized to update this contact
         if(contact.user_id.toString() != currentUserId){
                 res.status(status.UNAUTHORIZED);
                 throw new Error("User is not authorized to update this contact.")
@@ -66,6 +69,7 @@ const deleteContact = asyncHandler( async (req, res) =>{
                 throw new Error("Not found contact.")
         }
 
+        // Checking that the current user is authorized to delete this contact
         if(contact.user_id.toString() != currentUserId){
                 res.status(status.UNAUTHORIZED);
                 throw new Error("User is not authorized to delete this contact.")

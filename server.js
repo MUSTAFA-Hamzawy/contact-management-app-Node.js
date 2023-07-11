@@ -8,7 +8,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 const contactRoutes = require('./routes/contact');
 const userRoutes = require('./routes/user');
-
+const status = require('./config/statusCodes');
 
 // db connection
 connectDB();
@@ -31,5 +31,10 @@ app.use('/user', userRoutes)
 app.use('/contacts', contactRoutes);
 
 
+
+app.all('*', (req, res)=>{
+    res.status(status.NOT_FOUND);
+    throw new Error("Not found route.");
+})
 /***************************   Middlewares  *************************************/
 app.use(ErrorHandlerMiddleware);
