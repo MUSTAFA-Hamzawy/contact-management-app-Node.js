@@ -24,7 +24,7 @@ The Contact Management System is a small project that allows users to effectivel
 - Delete unwanted or outdated contacts from the system.
 
 ## API Docs
-<a href="https://github.com/MUSTAFA-Hamzawy/contact-management-app-expressjs/edit/main/README.md" target="_blank"> Link to api docs </a>
+<a href="https://documenter.getpostman.com/view/17672386/2s946cetUG#7662bf0b-1604-4233-a0a7-b8cb03fdb816" target="_blank"> Link to api docs </a>
 
 ## Built With
 
